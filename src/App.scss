@@ -1,11 +1,12 @@
 @use "./scss/" as *;
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap");
 
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -14,8 +15,9 @@ html {
   @include tablet {
     font-size: 80%;
   }
+
   @include mobile {
-    font-size: 80%;
+    font-size: 60%;
   }
 }
 
@@ -26,6 +28,7 @@ body {
 
   background-color: $body-bg;
   color: $txt-color;
+
   @include mobile {
     margin-bottom: 3rem;
   }
@@ -60,7 +63,7 @@ iframe {
 }
 
 .container {
-  min-width: 1660px;
+  max-width: 1660px;
   margin: auto;
 }
 
