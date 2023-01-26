@@ -1,4 +1,8 @@
+import { useParams } from "react-router-dom";
+
 function Catalog() {
+  const { category } = useParams();
+  console.log(category);
   return <div>Catalog</div>;
 }
 

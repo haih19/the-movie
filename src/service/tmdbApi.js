@@ -1,4 +1,6 @@
 import axiosClient from "./axiosClient";
+import { API_KEY } from "../common/constant";
+import queryString from "query-string";
 
 export const category = {
   movie: "movie",
@@ -19,16 +21,24 @@ export const tvType = {
 
 const tmdbApi = {
   getMovieList: (type, params) => {
-    const url = "movie/" + movieType[type];
-    return axiosClient.get(url, params);
+    const url =
+      "movie/" +
+      movieType[type] +
+      `?api_key=${API_KEY}&` +
+      queryString.stringify(params);
+    return axiosClient.get(url);
   },
   getTvList: (type, params) => {
-    const url = "tv/" + movieType[type];
-    return axiosClient.get(url, params);
+    const url =
+      "tv/" +
+      tvType[type] +
+      `?api_key=${API_KEY}&` +
+      queryString.stringify(params);
+    return axiosClient.get(url);
   },
   getVideos: (cate, id) => {
-    const url = category[cate] + "/" + id + "/videos";
-    return axiosClient.get(url, { params: {} });
+    const url = category[cate] + "/" + id + `/videos?api_key=${API_KEY}`;
+    return axiosClient.get(url);
   },
   search: (cate, params) => {
     const url = "search/" + category[cate];
