@@ -5,7 +5,7 @@ import Button from "../button";
 import { category } from "../../service/tmdbApi";
 import apiConfig from "../../service/apiConfig";
 
-function MovieCard(props) {
+const MovieCard = (props) => {
   const item = props.item;
 
   const link = "/" + category[props.category] + "/" + item.id;
@@ -18,9 +18,9 @@ function MovieCard(props) {
           <i className="bx bx-play"></i>
         </Button>
       </div>
-      <h3>{item.title || item.name}</h3>
+      <h3 style={{ textAlign: "center" }}>{item.title || item.name}</h3>
     </Link>
   );
-}
+};
 
 export default MovieCard;

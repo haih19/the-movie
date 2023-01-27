@@ -16,20 +16,35 @@ function Footer() {
         <div className="footer__content__menus">
           <div className="footer__content__menu">
             <Link to="/">Home</Link>
-            <Link to="/">Contact</Link>
             <Link to="/">Term of service</Link>
+            <Link to="/">Contact</Link>
             <Link to="/">About us</Link>
           </div>
-          <div className="footer__content__menu">
-            <Link to="/">Live</Link>
-            <Link to="/">FQA</Link>
-            <Link to="/">Premium</Link>
-            <Link to="/">Pravacy policy</Link>
-          </div>
-          <div className="footer__content__menu">
+
+          <div
+            className="footer__content__menu"
+            style={{
+              // display: "flex",
+              // flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
             <Link to="/">You must watch</Link>
             <Link to="/">Recent release</Link>
             <Link to="/">Top IMDB</Link>
+          </div>
+          <div
+            className="footer__content__menu"
+            style={{
+              // display: "flex",
+              // flexDirection: "column",
+              alignItems: "flex-end",
+            }}
+          >
+            <Link to="/">Pravacy policy</Link>
+            <Link to="/">Premium</Link>
+            <Link to="/">Live</Link>
+            <Link to="/">FQA</Link>
           </div>
         </div>
       </div>
