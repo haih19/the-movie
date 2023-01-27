@@ -11,7 +11,7 @@ function VideoList(props) {
     const getVideos = async () => {
       try {
         const response = await tmdbApi.getVideos(category, props.id);
-        setVideos(response.request.slice(0, 5));
+        setVideos(response.results.slice(0, 3));
       } catch (e) {
         console.log("e: ", e);
       }
@@ -19,11 +19,11 @@ function VideoList(props) {
     getVideos();
   }, [category, props.id]);
 
+  console.log("checkvieo:", videos);
   return (
     <>
-      {videos.map((item, i) => (
-        <Video key={i} item={item} />
-      ))}
+      {videos.length > 0 &&
+        videos.map((item, i) => <Video key={i} item={item} />)}
     </>
   );
 }
@@ -33,6 +33,11 @@ const Video = (props) => {
 
   const iframeRef = useRef(null);
 
+  useEffect(() => {
+    const height = (iframeRef.current.offsetWidth * 9) / 16 + "px";
+
+    iframeRef.current.setAttribute("height", height);
+  }, []);
   return (
     <div className="video">
       <div className="video__title">
