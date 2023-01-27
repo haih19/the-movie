@@ -48,17 +48,17 @@ const tmdbApi = {
       queryString.stringify(params);
     return axiosClient.get(url);
   },
-  detail: (cate, id, params) => {
-    const url = category[cate] + "/" + id;
-    return axiosClient.get(url, params);
+  detail: (cate, id) => {
+    const url = category[cate] + "/" + id + `?api_key=${API_KEY}`;
+    return axiosClient.get(url);
   },
   credits: (cate, id) => {
-    const url = category[cate] + "/" + id + "/credits";
-    return axiosClient.get(url, { params: {} });
+    const url = category[cate] + "/" + id + `/credits?api_key=${API_KEY}`;
+    return axiosClient.get(url);
   },
   similar: (cate, id) => {
-    const url = category[cate] + "/" + id + "/similar";
-    return axiosClient.get(url, { params: {} });
+    const url = category[cate] + "/" + id + `/similar?api_key=${API_KEY}`;
+    return axiosClient.get(url);
   },
 };
 
